@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Predicting Credit Card Approvals</title>
+<title>notebook</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -9129,15 +9129,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -12519,7 +12519,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -13033,14 +13033,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -13450,12 +13450,13 @@ Dataset tail:
 <span class="c1"># Segregate features and labels into separate variables</span>
 <span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">data_values</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">],</span> <span class="n">data_values</span><span class="p">[:,</span><span class="mi">13</span><span class="p">]</span>
 
-<span class="c1"># Instantiate StandardScaler and use it to rescale X</span>
+<span class="c1"># Instantiate StandardScaler and use it to rescale X_train and X_test</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="c1"># Split into train and test sets</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13486,12 +13487,12 @@ Dataset tail:
 <span class="n">pen</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">]</span>
 <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>
 
-<span class="n">grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tolerance</span><span class="p">,</span>
-            <span class="n">max_iter</span> <span class="o">=</span> <span class="n">m_iter</span><span class="p">,</span>
-            <span class="n">penalty</span> <span class="o">=</span> <span class="n">pen</span><span class="p">,</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tolerance</span><span class="p">,</span> 
+            <span class="n">max_iter</span> <span class="o">=</span> <span class="n">m_iter</span><span class="p">,</span> 
+            <span class="n">penalty</span> <span class="o">=</span> <span class="n">pen</span><span class="p">,</span> 
             <span class="n">C</span> <span class="o">=</span> <span class="n">c</span><span class="p">)</span>
 
-<span class="n">searcher</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span>
+<span class="n">searcher</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> 
                         <span class="n">param_grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">,</span>
                         <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 
@@ -13516,8 +13517,8 @@ Dataset tail:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Best CV params {&#39;C&#39;: 1, &#39;max_iter&#39;: 150, &#39;penalty&#39;: &#39;l1&#39;, &#39;tol&#39;: 0.01}
-86.47342995169082
+<pre>Best CV params {&#39;C&#39;: 1, &#39;max_iter&#39;: 100, &#39;penalty&#39;: &#39;l1&#39;, &#39;tol&#39;: 0.01}
+86.15136876006441
 </pre>
 </div>
 </div>
@@ -13571,7 +13572,7 @@ Dataset tail:
   </div>
 </body>
 
-
+ 
 
 
 </html>
